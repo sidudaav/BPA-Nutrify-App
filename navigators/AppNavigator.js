@@ -1,15 +1,20 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import HomeScreen from '../screens/HomeScreen';
+import HomeNavigator from './HomeNavigator';
+import ProfileNavigator from './ProfileNavigator';
 
-const AppStack = createStackNavigator();
+const AppTabs = createBottomTabNavigator();
 
 const AppNavigator = () => {
     return (
-        <AppStack.Navigator>
-            <AppStack.Screen name="Home" component={HomeScreen} />
-        </AppStack.Navigator>
+        <AppTabs.Navigator>
+            <AppTabs.Screen name="Home" component={HomeNavigator} />
+            <AppTabs.Screen
+                name="Profile"
+                component={ProfileNavigator}
+            />
+        </AppTabs.Navigator>
     );
 };
 

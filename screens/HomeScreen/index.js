@@ -5,33 +5,25 @@ import styles from './styles';
 import { useSelector } from 'react-redux';
 
 import CustomText from '../../components/CustomText';
-import ActionContainer from '../../components/ActionContainer';
+import MealsDisplay from '../../components/MealsDisplay';
 
 const HomeScreen = (props) => {
     const { user } = useSelector((state) => state.auth);
+    const { meals } = user;
 
     return (
-        <ScrollView style={styles.screen}>
-            <View
-                style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    marginTop: 30,
-                }}
-            >
-                <View style={styles.banner}>
-                    <CustomText style={styles.bannerText}>
-                        Hello {user.firstName}!
-                    </CustomText>
-                </View>
-                <View style={styles.actionRow}>
-                    <ActionContainer title="Add Meal" />
-                    <ActionContainer title="Add Drink" />
-                </View>
-                <View style={styles.actionRow}>
-                    <ActionContainer title="Add Fruits" />
-                    <ActionContainer title="Add Snack" />
-                </View>
+        <ScrollView
+            contentContainerStyle={styles.screen}
+            style={{ backgroundColor: 'white' }}
+        >
+            <View>
+                <CustomText>{user.consumedCalories}</CustomText>
+                <CustomText>
+                    Of {user.calorieGoal} Calories
+                </CustomText>
+            </View>
+            <View style={styles.mealsContainer}>
+                <MealsDisplay meals={meals} />
             </View>
         </ScrollView>
     );
