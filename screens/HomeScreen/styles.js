@@ -8,6 +8,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'white',
     },
+    overviewContainer: {
+        alignItems: 'center',
+    },
     mealsContainer: {
         width: '100%',
         marginTop: 50,

@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 
 import CustomText from '../../components/CustomText';
 import MealsDisplay from '../../components/MealsDisplay';
+import ProteinCarbsFatDisplay from '../../components/ProteinCarbsFatDisplay';
 
 const HomeScreen = (props) => {
     const { user } = useSelector((state) => state.auth);
@@ -16,11 +17,12 @@ const HomeScreen = (props) => {
             contentContainerStyle={styles.screen}
             style={{ backgroundColor: 'white' }}
         >
-            <View>
+            <View style={styles.overviewContainer}>
                 <CustomText>{user.consumedCalories}</CustomText>
                 <CustomText>
                     Of {user.calorieGoal} Calories
                 </CustomText>
+                <ProteinCarbsFatDisplay meals={meals} />
             </View>
             <View style={styles.mealsContainer}>
                 <MealsDisplay meals={meals} />
