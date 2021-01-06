@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import CustomText from '../../components/CustomText';
 import MealsDisplay from '../../components/MealsDisplay';
 import ProteinCarbsFatDisplay from '../../components/ProteinCarbsFatDisplay';
+import CalorieProgessBar from '../../components/CalorieProgressBar';
 
 const HomeScreen = (props) => {
     const { user } = useSelector((state) => state.auth);
@@ -18,10 +19,7 @@ const HomeScreen = (props) => {
             style={{ backgroundColor: 'white' }}
         >
             <View style={styles.overviewContainer}>
-                <CustomText>{user.consumedCalories}</CustomText>
-                <CustomText>
-                    Of {user.calorieGoal} Calories
-                </CustomText>
+                <CalorieProgessBar meals={meals} />
                 <ProteinCarbsFatDisplay meals={meals} />
             </View>
             <View style={styles.mealsContainer}>
